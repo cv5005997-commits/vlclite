@@ -21,6 +21,7 @@ jobs:
           unzip -o VLCLite-reconstruccion-inicial.zip -d _vlclite_src
           test -f _vlclite_src/settings.gradle.kts
           cp -R _vlclite_src/. .
+          sed -i 's/Media(libVLC, /Media(libVLC ?: throw IllegalStateException("Motor no inicializado"), /' app/src/main/java/com/vlclite/player/MainActivity.kt
 
       - name: Set up Java
         uses: actions/setup-java@v4
